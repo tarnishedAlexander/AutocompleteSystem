@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Autocomplete-System</string>
+    <string name="aleluma">Aleluma</string>
+    <string name="buscar">Buscar en Aleluma</string>
 </resources>
