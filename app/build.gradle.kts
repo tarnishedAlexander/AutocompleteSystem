@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.autocomplete_system"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.autocomplete_system"
