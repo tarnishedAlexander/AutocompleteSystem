@@ -4,45 +4,42 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.autocomplete_system.Adapters.LastWordPhraseSearchedAdapter
-import com.example.autocomplete_system.DataClases.LastWordsOrPhrasesDB
-import com.example.autocomplete_system.databinding.ActivityMainBinding
+import android.widget.ImageButton
+import com.google.gson.Gson
+import java.io.IOException
+
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var trie: Trie
+    //private lateinit var gson:Gson
     private lateinit var autoCompleteTextView: AutoCompleteTextView
+    private lateinit var myImageButton: ImageButton
     private lateinit var adapter: ArrayAdapter<String>
-    private lateinit var binding: ActivityMainBinding
-    private val lastWordPhraseSearchedAdapter by lazy { LastWordPhraseSearchedAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.buttomSearch.setOnClickListener{ Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show() }
-
-        showLastWordsOrPhrases()
+        setContentView(R.layout.activity_main)
 
         trie = Trie()
-        trie.insertWord("Hello world")
-        trie.insertWord("world")
-        trie.insertWord("hola")
-        trie.insertWord("paul")
-        trie.insertWord("paul")
-        trie.insertWord("pato")
-        trie.insertWord("partido")
-        trie.insertWord("patio")
-        trie.insertWord("pollo")
+        //gson = Gson()
+        //val json = loadData("words.json")
+        //Log.d("RES", json)
+
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView)
+        myImageButton = findViewById(R.id.buttom_search)
+        myImageButton.setOnClickListener {// Boton para guardar las palabras en el trie
+            val word: String = autoCompleteTextView.text.toString()
+            trie.insertWord(word)
+        }
+
 
 
         val wordsList = mutableListOf<String>() // Obteniendo las palabras del trie
-        autoCompleteTextView = findViewById(R.id.autoCompleteTextView)
         adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, wordsList)
         autoCompleteTextView.setAdapter(adapter)
 
@@ -71,24 +68,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showLastWordsOrPhrases() {
-        val word1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
-            wordOrPhraseDB = "queso",
-            imageOfWordOrPhraseDB = R.drawable.word
-        )
 
-        val phrase1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
-            wordOrPhraseDB = "amo el queso",
-            imageOfWordOrPhraseDB = R.drawable.phrase
-        )
 
-        LastWordPhraseSearchedAdapter.addWordsOrPhrases(listOf(word1,phrase1))
 
-        binding.lastWordsOrPhrasesRecyclerView.apply {
-            layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = lastWordPhraseSearchedAdapter
-        }
-    }
 
 }
