@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.autocomplete_system.Adapters.LastWordPhraseSearchedAdapter
-import com.example.autocomplete_system.DataClases.LastWordsOrPhrasesDB
+import com.example.autocomplete_system.Adapters.WordOrPhraseAdapter
+import com.example.autocomplete_system.DataClases.DataClaseWordsOrPhrases
 import com.example.autocomplete_system.databinding.ActivityMainBinding
 
 
@@ -19,15 +19,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var binding: ActivityMainBinding
-    private val lastWordPhraseSearchedAdapter by lazy { LastWordPhraseSearchedAdapter() }
+    private val WordOrPhraseAdapter by lazy { WordOrPhraseAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.buttomSearch.setOnClickListener{ Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show() }
+        binding.buttomSearch.setOnClickListener {
+            Toast.makeText(
+                this,
+                "Guardado",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
-        showLastWordsOrPhrases()
+        showLastWordsAndPhrases()
 
         trie = Trie()
         trie.insertWord("Hello world")
@@ -46,7 +52,8 @@ class MainActivity : AppCompatActivity() {
         adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, wordsList)
         autoCompleteTextView.setAdapter(adapter)
 
-        autoCompleteTextView.threshold = 0 //mostrar el menu desplegable cuando ingresamos el primer prefijo
+        autoCompleteTextView.threshold =
+            0 //mostrar el menu desplegable cuando ingresamos el primer prefijo
 
         autoCompleteTextView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -71,23 +78,43 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showLastWordsOrPhrases() {
-        val word1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
-            wordOrPhraseDB = "queso",
-            imageOfWordOrPhraseDB = R.drawable.word
+    private fun showLastWordsAndPhrases() {
+        val word1 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "queso",
+            imageOfWordOrPhraseDC = R.drawable.word
         )
 
-        val phrase1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
-            wordOrPhraseDB = "amo el queso",
-            imageOfWordOrPhraseDB = R.drawable.phrase
+        val phrase1 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "amo el queso",
+            imageOfWordOrPhraseDC = R.drawable.phrase
         )
 
-        LastWordPhraseSearchedAdapter.addWordsOrPhrases(listOf(word1,phrase1))
+        val word2 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "arroz",
+            imageOfWordOrPhraseDC = R.drawable.word
+        )
+
+        val phrase2 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "amo el arroz",
+            imageOfWordOrPhraseDC = R.drawable.phrase
+        )
+
+        val word3 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "pitahaya",
+            imageOfWordOrPhraseDC = R.drawable.word
+        )
+
+        val phrase3 = DataClaseWordsOrPhrases(
+            wordOrPhraseDC = "amo el pitahaya",
+            imageOfWordOrPhraseDC = R.drawable.phrase
+        )
+
+        WordOrPhraseAdapter.addWordsAndPhrases(listOf(word1,word2,word3,phrase1,phrase2,phrase3))
 
         binding.lastWordsOrPhrasesRecyclerView.apply {
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = lastWordPhraseSearchedAdapter
+            adapter = WordOrPhraseAdapter
         }
     }
 
