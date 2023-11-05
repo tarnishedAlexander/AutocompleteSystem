@@ -6,4 +6,6 @@ class LastWordsOrPhrasesDB {
         val imageOfWordOrPhraseDB: Int
     )
 
+
+
 }

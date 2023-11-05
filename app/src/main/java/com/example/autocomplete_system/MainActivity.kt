@@ -7,7 +7,9 @@ import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autocomplete_system.Adapters.LastWordPhraseSearchedAdapter
+import com.example.autocomplete_system.DataClases.LastWordsOrPhrasesDB
 import com.example.autocomplete_system.databinding.ActivityMainBinding
 
 
@@ -70,7 +72,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLastWordsOrPhrases() {
-        TODO("Not yet implemented")
+        val word1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
+            wordOrPhraseDB = "queso",
+            imageOfWordOrPhraseDB = R.drawable.word
+        )
+
+        val phrase1 = LastWordsOrPhrasesDB.WordsOrPhrasesDB(
+            wordOrPhraseDB = "amo el queso",
+            imageOfWordOrPhraseDB = R.drawable.phrase
+        )
+
+        val newText = LastWordPhraseSearchedAdapter.addWordsOrPhrases(listOf(word1,phrase1));
+
+        binding.lastWordsOrPhrasesRecyclerView.apply {
+            layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = lastWordPhraseSearchedAdapter
+        }
     }
 
 }
