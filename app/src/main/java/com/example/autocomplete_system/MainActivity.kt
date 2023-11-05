@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             imageOfWordOrPhraseDB = R.drawable.phrase
         )
 
-        val newText = LastWordPhraseSearchedAdapter.addWordsOrPhrases(listOf(word1,phrase1));
+        LastWordPhraseSearchedAdapter.addWordsOrPhrases(listOf(word1,phrase1))
 
         binding.lastWordsOrPhrasesRecyclerView.apply {
             layoutManager =
