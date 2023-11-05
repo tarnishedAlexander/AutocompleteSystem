@@ -6,6 +6,9 @@ plugins {
 android {
     namespace = "com.example.autocomplete_system"
     compileSdk = 34
+    viewBinding{
+        enable = true
+    }
 
     defaultConfig {
         applicationId = "com.example.autocomplete_system"
