@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
+import com.example.autocomplete_system.Adapters.LastWordPhraseSearchedAdapter
+import com.example.autocomplete_system.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,10 +16,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trie: Trie
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapter: ArrayAdapter<String>
+    private lateinit var binding: ActivityMainBinding
+    private val lastWordPhraseSearchedAdapter by lazy { LastWordPhraseSearchedAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.buttomSearch.setOnClickListener{ Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show() }
+
+        showLastWordsOrPhrases()
+
         trie = Trie()
         trie.insertWord("Hello world")
         trie.insertWord("world")
@@ -62,4 +68,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun showLastWordsOrPhrases() {
+        TODO("Not yet implemented")
+    }
+
 }
