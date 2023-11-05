@@ -1,6 +1,6 @@
 <div align="center">
   
-  #Autocomplete System
+  # Autocomplete System
   ### Integrantes: 
   Cruz Alexander<br/>
   Zamorano Marian<br/>
