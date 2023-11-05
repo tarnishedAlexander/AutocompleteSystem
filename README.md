@@ -1,6 +1,6 @@
 <div align="center">
   
-  # Proyecto Algorítmica 2: Autocomplete System
+  #Autocomplete System
   ### Integrantes: 
   Cruz Alexander<br/>
   Zamorano Marian<br/>
