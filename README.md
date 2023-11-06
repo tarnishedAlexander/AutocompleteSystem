@@ -17,3 +17,42 @@ Para mostrar las posibles predicciones en la pantalla, se utiliza un algoritmo d
 La complejidad del uso del Trie para almacenar las palabras es de O(N * M * C) donde "N" es el número total de cadenas, "M" es la longitud m\'axima de una cadena y "C" es el tamaño del alfabeto utilizado, y el uso del DFS para recorrer y extraer las palabras es de  O(V + E) donde "V" es el numero de vertices y "E" el numero de aristas.
 
 ### Instalación
+
+## Desde el directorio
+<div align="center">
+  
+  
+  Primeramente ingresamos al link del repositorio: https://github.com/tarnishedAlexander/AutocompleteSystem
+  -Entramos en el directorio "Aleluma-APK"
+  
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/Pasted%20image.png)
+  
+  -Accedemos al apk:
+  
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/Pasted%20image%201.png)
+  
+  -Lo descargamos:
+  
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/Pasted%20image%202.png)
+  </div>
+  
+  ## Desde el telefono
+  
+  <div align="center">
+
+  -Se debe ingresar y descarga el apk del siguiente link https://www.mediafire.com/file/5kq1c2o9iwf6qm7/Aleluma.apk/file
+  Luego lo descargamos
+
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/install1.jpeg)
+  
+  -Lo instalamos:
+  
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/install2.jpeg)
+
+  -Instalando...:
+
+  ![alt text](https://github.com/tarnishedAlexander/AutocompleteSystem/blob/master/images/install3.jpeg)
+
+  -Instalado!!
+</div>
+  
