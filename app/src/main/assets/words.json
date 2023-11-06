@@ -14,6 +14,51 @@
       "id": 2,
       "word": "hola Bola",
       "imageWord": 0
+    },
+    {
+      "id": 0,
+      "word": "me",
+      "imageWord": 1
+    },
+    {
+      "id": 1,
+      "word": "nos reuniremos por meet",
+      "imageWord": 0
+    },
+    {
+      "id": 2,
+      "word": "Puede ser",
+      "imageWord": 0
+    },
+    {
+      "id": 0,
+      "word": "No",
+      "imageWord": 1
+    },
+    {
+      "id": 1,
+      "word": "Te quiero",
+      "imageWord": 0
+    },
+    {
+      "id": 2,
+      "word": "No quiero",
+      "imageWord": 0
+    },
+    {
+      "id": 0,
+      "word": "Aios",
+      "imageWord": 1
+    },
+    {
+      "id": 1,
+      "word": "Si",
+      "imageWord": 0
+    },
+    {
+      "id": 2,
+      "word": "Holi",
+      "imageWord": 1
     }
   ]
 }
