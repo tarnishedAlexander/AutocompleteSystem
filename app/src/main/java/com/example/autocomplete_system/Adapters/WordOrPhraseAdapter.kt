@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.autocomplete_system.DataClases.DataClaseWordsOrPhrases
+import com.example.autocomplete_system.DataClases.Word
+import com.example.autocomplete_system.R
 import com.example.autocomplete_system.databinding.ItemLastWordsOrPhrasesSearchedBinding
 
 class WordOrPhraseAdapter : RecyclerView.Adapter<WordOrPhraseAdapter.WordOrPhraseAdapterViewHolder>() {
 
     private var context: Context? = null
-    private var listOfWordsAndPhrases = mutableListOf<DataClaseWordsOrPhrases>()
+    private var listOfWordsAndPhrases = mutableListOf<Word>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -37,14 +39,18 @@ class WordOrPhraseAdapter : RecyclerView.Adapter<WordOrPhraseAdapter.WordOrPhras
     inner class WordOrPhraseAdapterViewHolder(val binding: ItemLastWordsOrPhrasesSearchedBinding) :
             RecyclerView.ViewHolder(binding.root){
 
-                fun binding(data: DataClaseWordsOrPhrases){
-                    binding.wordOrPhrase.text = data.wordOrPhraseDC
-                    binding.imageWordOrPhrase.setImageResource(data.imageOfWordOrPhraseDC)
+                fun binding(data: Word){
+                    binding.wordOrPhrase.text = data.word
+                    if(data.imageWord == 1){
+                        binding.imageWordOrPhrase.setImageResource(R.drawable.word)
+                    } else {
+                        binding.imageWordOrPhrase.setImageResource(R.drawable.phrase)
+                    }
                 }
             }
 
-    fun addWordsAndPhrases(newDataClaseWordsOrPhrases: List<DataClaseWordsOrPhrases>){
+    fun addWordsAndPhrases(newWord: List<Word>){
         listOfWordsAndPhrases.clear()
-        listOfWordsAndPhrases.addAll(newDataClaseWordsOrPhrases)
+        listOfWordsAndPhrases.addAll(newWord)
     }
 }

@@ -41,11 +41,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+        trie = Trie()
+        gson = Gson()
 
         showLastWordsAndPhrases()
 
-        trie = Trie()
-        gson = Gson()
+
         val json = loadData("words.json") // Leer el archivo words.json
         var dataBase = gson.fromJson(json, WordsDB::class.java) // convertir de json a una clase para poder leer los datos
 
@@ -107,37 +108,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLastWordsAndPhrases() {
-        val word1 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "queso",
-            imageOfWordOrPhraseDC = R.drawable.word
-        )
+        val json = loadData("words.json") // Leer el archivo words.json
+        var dataBase = gson.fromJson(json, WordsDB::class.java)
 
-        val phrase1 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "amo el queso",
-            imageOfWordOrPhraseDC = R.drawable.phrase
-        )
-
-        val word2 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "arroz",
-            imageOfWordOrPhraseDC = R.drawable.word
-        )
-
-        val phrase2 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "amo el arroz",
-            imageOfWordOrPhraseDC = R.drawable.phrase
-        )
-
-        val word3 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "pitahaya",
-            imageOfWordOrPhraseDC = R.drawable.word
-        )
-
-        val phrase3 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "amo la pitahaya",
-            imageOfWordOrPhraseDC = R.drawable.phrase
-        )
-
-        WordOrPhraseAdapter.addWordsAndPhrases(listOf(word1,word2,word3,phrase1,phrase2,phrase3))
+        WordOrPhraseAdapter.addWordsAndPhrases(dataBase.words!!.toList())
 
         binding.lastWordsOrPhrasesRecyclerView.apply {
             layoutManager =
