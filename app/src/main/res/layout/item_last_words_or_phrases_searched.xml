@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/it_is_probably_that_is_a_phrase_or_word"
+                android:fontFamily="@font/alexandria_flf_bold"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val phrase3 = DataClaseWordsOrPhrases(
-            wordOrPhraseDC = "amo el pitahaya",
+            wordOrPhraseDC = "amo la pitahaya",
             imageOfWordOrPhraseDC = R.drawable.phrase
         )
 
